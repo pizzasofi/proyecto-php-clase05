@@ -23,7 +23,9 @@ Demostrar cómo consultar, procesar y mostrar datos provenientes de una API exte
 
 ## Estructura
 - `index.php`: Página principal y vista inicial de la aplicación.
-- `[otros archivos o carpetas, ej. css/ o pokemon.php]`: [Breve descripción de qué hacen tus demás archivos].
+- `agregar.php`: Formulario y lógica para el registro de datos.
+- `pokemon.php`: Módulo encargado de consultar y mostrar información de la API externa.
+
 
 ## Ejecución
 1. Clonar el repositorio: `git clone https://github.com/pizzasofi/proyecto-php-clase05.git`

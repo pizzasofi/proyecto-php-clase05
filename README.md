@@ -1,40 +1,47 @@
-# Proyecto PHP - Consumo de API (Clase 05)
+# Proyecto PHP - Pokédex CBA (Consumo de API)
 
-## Descripción
-Aplicación web desarrollada durante el Técnico en Programación de Software para practicar la integración con APIs externas y el control de versiones.
+## Descripción y Objetivo
+Aplicación web desarrollada en el Técnico en Programación de Software para practicar la integración con la **PokéAPI** (`https://pokeapi.co`), manejo de sesiones y control de versiones con Git y GitHub.
 
-## Objetivo
-Demostrar cómo consultar, procesar y mostrar datos provenientes de una API externa utilizando PHP, aplicando buenas prácticas de validación y manejo de errores.
+## Captura de pantalla
+![Vista principal de Pokédex CBA](captura.png)
 
-## Tecnologías
-- HTML
-- CSS
-- JavaScript
-- PHP
-- API REST / API externa
-- Git
-- GitHub
+## API Utilizada
+- **PokéAPI** (RESTful Pokémon API, sin autenticación requerida).
+- **Endpoint principal:** `GET /pokemon/{nombre_o_id}` para obtener estadísticas, peso, altura e imágenes.
 
-## Funcionalidades
-- Consultar información dinámica desde una API externa.
-- Mostrar resultados organizados en la interfaz web.
-- Validar datos ingresados por el usuario.
-- Manejar errores de conexión o respuestas vacías.
+### Ejemplo de respuesta JSON
+```json
+{
+  "id": 25,
+  "name": "pikachu",
+  "height": 4,
+  "weight": 60,
+  "base_experience": 112,
+  "sprites": {
+    "front_default": "https://githubusercontent.com"
+  },
+  "stats": [{"base_stat": 35, "stat": {"name": "hp"}}]
+}
+```
 
-## Estructura
-- `index.php`: Página principal y vista inicial de la aplicación.
-- `agregar.php`: Formulario y lógica para el registro de datos.
-- `pokemon.php`: Módulo encargado de consultar y mostrar información de la API externa.
+## Flujo básico de la aplicación
+```text
+Usuario → HTML / Formulario (index.php) → Petición HTTP GET (pokemon.php) → PHP / cURL (funciones.php) → PokéAPI → Respuesta JSON → Decodificación en PHP → Interfaz Visual
+```
 
+## Arquitectura y Funcionalidades
+- **Estructura principal:** `index.php` (buscador), `pokemon.php` (detalle), `funciones.php` (lógica y conexión API) y módulos de gestión de equipo (`equipo.php`, `agregar.php`, `eliminar.php`, `vaciar.php`).
+- **Características:** Búsqueda por nombre o ID, gestión temporal de equipo Pokémon y validación de errores.
 
-## Ejecución
-1. Clonar el repositorio: `git clone https://github.com/pizzasofi/proyecto-php-clase05.git`
-2. Abrirlo en Visual Studio Code.
-3. Si usa PHP, ubicar la carpeta dentro de `C:\xampp\htdocs\`.
-4. Iniciar el módulo **Apache** desde el panel de control de XAMPP.
-5. Abrir la aplicación en el navegador desde `http://localhost/proyecto-php-clase05/`.
+## Limitaciones y Aprendizajes
+- **Limitaciones:** Dependencia de conexión a internet, búsqueda en inglés o por ID numérico, y almacenamiento temporal sin base de datos persistente.
+- **Aprendizajes:** Consumo de APIs REST con PHP, manejo seguro de respuestas JSON, prevención de errores críticos y flujo de trabajo profesional con Git (`branches`, Pull Requests y commits).
+
+## Ejecución local
+1. Clonar el repositorio y ubicarlo en `C:\xampp\htdocs/`.
+2. Iniciar el servicio **Apache** en XAMPP.
+3. Acceder en el navegador a `http://localhost/nombre-del-repositorio/`.
 
 ## Autor
-- **[Sofia Jimenez Aguilera]**
-- Ficha: 3538620
-- Técnico en Programación de Software - SENA
+- **Sofia Jimenez Aguilera** (Ficha: 3538620) - SENA

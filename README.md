@@ -4,7 +4,7 @@
 Aplicación web desarrollada en el Técnico en Programación de Software para practicar la integración con la **PokéAPI** (`https://pokeapi.co`), manejo de sesiones y control de versiones con Git y GitHub.
 
 ## Captura de pantalla
-![Vista principal de Pokédex CBA](captura.png)
+![Vista principal de Pokédex CBA](interfazpoke.PNG)
 
 ## API Utilizada
 - **PokéAPI** (RESTful Pokémon API, sin autenticación requerida).

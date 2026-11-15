@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokédex CBA</title>
   <style>
-    /* Mejora visual y diseño responsive */
     * {
       box-sizing: border-box;
       font-family: Arial, sans-serif;
@@ -32,7 +31,7 @@
     .tarjeta {
       background-color: #ffffff;
       width: 100%;
-      max-width: 380px;
+      max-width: 400px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       padding: 24px;
@@ -44,17 +43,30 @@
       margin-top: 0;
     }
 
-    input[type="text"] {
+    label {
+      display: block;
+      text-align: left;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    input[type="text"], select {
       width: 100%;
       padding: 10px;
-      margin: 12px 0;
+      margin: 8px 0 12px 0;
       border: 1px solid #ccc;
       border-radius: 6px;
       font-size: 16px;
     }
 
+    .grupo-botones {
+      display: flex;
+      gap: 8px;
+    }
+
     button {
-      width: 100%;
+      flex: 1;
       padding: 10px;
       background-color: #e3350d;
       color: white;
@@ -66,6 +78,14 @@
 
     button:hover {
       background-color: #c22b09;
+    }
+
+    .btn-recargar {
+      background-color: #6c757d;
+    }
+
+    .btn-recargar:hover {
+      background-color: #545b62;
     }
 
     .enlace-equipo {
@@ -91,8 +111,10 @@
   <div class="contenedor">
     <div class="tarjeta">
       <h1>Pokédex CBA</h1>
+      
+      <!-- Búsqueda directa por nombre o ID -->
       <form action="pokemon.php" method="GET">
-        <label for="pokemon">Nombre o ID del Pokémon:</label>
+        <label for="pokemon">Buscar por nombre o ID:</label>
         <input
           type="text"
           id="pokemon"
@@ -100,8 +122,28 @@
           placeholder="Ej: pikachu o 25"
           required
         >
-        <button type="submit">Buscar</button>
+        <div class="grupo-botones">
+          <button type="submit">Buscar</button>
+          <button type="reset" class="btn-recargar">Limpiar</button>
+        </div>
       </form>
+
+      <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+      <!-- Filtro rápido por selector -->
+      <form action="pokemon.php" method="GET">
+        <label for="filtro-rapido">Filtro rápido (Iniciales):</label>
+        <select id="filtro-rapido" name="pokemon" required>
+          <option value="">-- Selecciona un Pokémon --</option>
+          <option value="bulbasaur">Bulbasaur (#1 - Planta)</option>
+          <option value="charmander">Charmander (#4 - Fuego)</option>
+          <option value="squirtle">Squirtle (#7 - Agua)</option>
+          <option value="pikachu">Pikachu (#25 - Eléctrico)</option>
+          <option value="eevee">Eevee (#133 - Normal)</option>
+        </select>
+        <button type="submit">Consultar selección</button>
+      </form>
+
       <a class="enlace-equipo" href="equipo.php">Ver mi equipo</a>
     </div>
   </div>
